@@ -93,7 +93,7 @@ function showQuestion() {
     // Soru ve ilerleme metnini güncelle
     let currentQuestion = questions[currentQuestionIndex];
     questionText.innerText = currentQuestion.question;
-    progressText.innerText = `Soru ${currentQuestionIndex + 1} / ${questions.length}`;
+    progressText.innerText = `Question ${currentQuestionIndex + 1} / ${questions.length}`;
 
     // Yeni cevap şıklarını oluştur
     currentQuestion.answers.forEach(answer => {
@@ -117,7 +117,7 @@ function selectAnswer(e) {
 
     if (isCorrect) {
         // Doğru Cevap
-         successSound.play(); // Ses efektini çal (istersen)
+         successSound.play(success.mp3); // Ses efektini çal (istersen)
         
         // Son soru mu kontrol et
         if (currentQuestionIndex === questions.length - 1) {
@@ -130,7 +130,7 @@ function selectAnswer(e) {
         }
     } else {
         // Yanlış Cevap
-         failSound.play(); // Ses efektini çal (istersen)
+         failSound.play(fail.mp3); // Ses efektini çal (istersen)
 
         // Uyarı ver ve testi baştan başlat (istediğin gibi)
         alert("WRONG ANSWER! fuhh im restartin it.");
@@ -193,6 +193,7 @@ codeLinkBtn.addEventListener('click', () => {
 
 // --- Testi Başlat ---
 startTest();
+
 
 
 
